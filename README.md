@@ -30,4 +30,4 @@ await autoadmin({action: 'run'})
 await autoadmin({action: 'unhook'})
 ```
 
-`True` is returned when the action has been completed successfully.
+`true` is returned when the action has been completed successfully.

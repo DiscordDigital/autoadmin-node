@@ -15,19 +15,19 @@ Import the module from the file:
 #### Example 1: Hook a command into autostart
 
 ```javascript
-await autoadmin({action: 'hook', command: 'cmd /c echo This prompt has admin privileges.& cmd'})
+await autoadmin({action: 'hook', command: 'cmd /c echo This prompt has admin privileges.& cmd'});
 ```
 
 #### Example 2: Run hook manually
 
 ```javascript
-await autoadmin({action: 'run'})
+await autoadmin({action: 'run'});
 ```
 
 #### Example 3: Remove hook
 
 ```javascript
-await autoadmin({action: 'unhook'})
+await autoadmin({action: 'unhook'});
 ```
 
 `true` is returned when the action has been completed successfully.

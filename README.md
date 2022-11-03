@@ -4,6 +4,8 @@ Use `autoadmin` to register a task, which always runs when you log in, as Admini
 A use case for this module is re-launching a program as Administrator after restart, without spawning the UAC prompt.\
 Can be removed with one function call.
 
+This does not bypass the initial UAC. However, it allows "saving" elevation for later use, and bypasses all UAC prompts on demand.
+
 # How to use
 
 Import the module from the file:

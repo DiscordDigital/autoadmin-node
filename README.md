@@ -12,6 +12,13 @@ This will not work if another user is specified for elevation, because it will t
 Specifying the same user as the one signed in on the session, will allow "saving" the UAC elevation, therefore using another Administrator won't work.\
 This utility is meant to preserve Administrator privileges after restart, so make sure the user you're working with has these permissions.
 
+#### Use cases
+
+- Deployment utility, relaunch a program after restart to continue installing software
+- Create administrative utilities, which can elevate themselves to be more efficient
+- Isolate modules from a program, so not the whole program has to run as administrator
+- Create an auto updater which can elevate itself to update program code
+
 # How to use
 
 Import the module from the file:

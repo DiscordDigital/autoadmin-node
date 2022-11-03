@@ -6,6 +6,9 @@ Can be removed with one function call.
 
 This does not bypass the initial UAC. However, it allows "saving" elevation for later use, and bypasses all UAC prompts on demand.
 
+Possibly only works when the user is directly in the local Administrator group.\
+This is due to "schtasks /run" not working when the user is not directly in the group. (Access denied)
+
 # How to use
 
 Import the module from the file:

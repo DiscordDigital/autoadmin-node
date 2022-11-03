@@ -9,7 +9,7 @@ Can be removed with one function call.
 Import the module from the file:
 
 ```javascript
-{ autoadmin } = require('./autoadmin.js');
+const { autoadmin } = require('./autoadmin.js');
 ```
 
 #### Example 1: Hook a command into autostart
@@ -28,6 +28,24 @@ await autoadmin({action: 'run'});
 
 ```javascript
 await autoadmin({action: 'unhook'});
+```
+
+#### Example 4: Add a hook that doesn't autostart with a different id
+
+```javascript
+await autoadmin({action: 'hook', command: 'cmd /c echo This prompt has admin privileges.& cmd', autostart: false, id: 'admincmd'});
+```
+
+#### Example 5: Run hook with different id
+
+```javascript
+await autoadmin({action: 'run', id: 'admincmd'});
+```
+
+#### Example 6: Remove hook with custom id
+
+```javascript
+await autoadmin({action: 'unhook', id: 'admincmd'});
 ```
 
 `true` is returned when the action has been completed successfully.

@@ -6,10 +6,11 @@ Can be removed with one function call.
 
 This does not bypass the initial UAC. However, it allows "saving" elevation for later use, and bypasses all UAC prompts on demand.
 
-#### Info about using manual mode (without autostart)
+#### Important note
 
 This will not work if another user is specified for elevation, because it will try to launch with that user interactively.\
-Specifying the same user as the one signed in on the session, will allow "saving" the UAC elevation, therefore using another Administrator won't work.
+Specifying the same user as the one signed in on the session, will allow "saving" the UAC elevation, therefore using another Administrator won't work.\
+This utility is meant to preserve Administrator privileges after restart, so make sure the user you're working with has these permissions.
 
 # How to use
 

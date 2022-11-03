@@ -6,8 +6,10 @@ Can be removed with one function call.
 
 This does not bypass the initial UAC. However, it allows "saving" elevation for later use, and bypasses all UAC prompts on demand.
 
-The manual trigger possibly only works when the user is directly in the local Administrator group.\
-This is due to "schtasks /run" not working when the user is not directly in the group. (Access denied)
+#### Info about using manual mode (without autostart)
+
+This will not work if another user is specified for elevation, because it will try to launch with that user interactively.\
+Specifying the same user as the one signed in on the session, will allow "saving" the UAC elevation, therefore using another Administrator won't work.
 
 # How to use
 

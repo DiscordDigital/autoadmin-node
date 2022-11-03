@@ -12,7 +12,7 @@ module.exports.autoadmin = async (a = {}) => {
             if (arr.length === 0) return;
             col = [];
             arr.forEach((string)=>{
-                const regex1 = /[^a-zA-Z\d\s_:\/&-]/g;
+                const regex1 = /[^a-zA-Z\d\s_:\/&-\\]/g;
                 const regex2 = /\s/;
                 string = string.replaceAll(regex1, '^$&');
                 col.push(regex2.test(string) ? `"${string}"` : string);

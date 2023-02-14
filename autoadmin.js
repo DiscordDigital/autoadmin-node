@@ -46,7 +46,6 @@ module.exports.autoadmin = async (a = {}) => {
                 const command = args['command'];
                 const user = args['user'] === undefined ? os.userInfo().username : args['user'];
                 const autostart = args['autostart'];
-                console.log(`${id} ${command} ${user}`)
                 if (autostart) {
                     runAndResolve(`schtasks /create /tn "autoadmin-${escape([id])}" /tr ${escape([command])} /sc ONLOGON /IT /ru ${escape([user])} /RL HIGHEST /F`);
                 } else {

@@ -3,7 +3,7 @@ module.exports.autoadmin = async (a = {}) => {
         const { spawn } = require('child_process');
         const os = require('os');
         const argTemplate = {action: undefined, command: undefined, user: undefined, id: 'default', autostart: true};
-        const allArgKeys = Object.keys(a);
+        const allArgKeys = Object.keys(argTemplate);
         let args = {};
         for (const arg of allArgKeys) {
             arg in a ? args[arg] = a[arg] : args[arg] = argTemplate[arg];
@@ -12,13 +12,14 @@ module.exports.autoadmin = async (a = {}) => {
             if (arr.length === 0) return;
             col = [];
             arr.forEach((string)=>{
-                const regex1 = /[^a-zA-Z\d\s_:\/&-\\]/g;
+                string = string.replaceAll(`"`, `'`);
+                const regex1 = /[^a-zA-Z\d\s_:\/&-\\"]/g;
                 const regex2 = /\s/;
                 string = string.replaceAll(regex1, '^$&');
                 col.push(regex2.test(string) ? `"${string}"` : string);
             })
             return col.join(' ');
-        }
+        }        
         const runAndResolve = (command) => {
             const execution = spawn(command, [], {cwd: process.env.USERPROFILE, shell: true});
 
@@ -45,6 +46,7 @@ module.exports.autoadmin = async (a = {}) => {
                 const command = args['command'];
                 const user = args['user'] === undefined ? os.userInfo().username : args['user'];
                 const autostart = args['autostart'];
+                console.log(`${id} ${command} ${user}`)
                 if (autostart) {
                     runAndResolve(`schtasks /create /tn "autoadmin-${escape([id])}" /tr ${escape([command])} /sc ONLOGON /IT /ru ${escape([user])} /RL HIGHEST /F`);
                 } else {
